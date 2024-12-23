@@ -1,5 +1,9 @@
 package com.example.demo.model.repositories;
 
+// Created: 2024-12-12
+// Modified by: Ömer Yalcinkaya
+// Description: Training
+
 import java.util.*;
 
 import org.springframework.data.jpa.repository.JpaRepository;
