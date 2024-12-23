@@ -1,5 +1,9 @@
 package com.example.demo.model.entities;
 
+// Created: 2024-12-12
+// Modified by: Ömer Yalcinkaya
+// Description: Uebung
+
 import java.util.Objects;
 
 import com.example.demo.model.enums.Muskelgruppe;
