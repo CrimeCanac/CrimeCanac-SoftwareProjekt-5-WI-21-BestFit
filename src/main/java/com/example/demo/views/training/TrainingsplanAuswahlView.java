@@ -1,3 +1,5 @@
+//Written by Ömer Yalcinkaya
+
 package com.example.demo.views.training;
 
 import org.springframework.beans.factory.annotation.Autowired;
