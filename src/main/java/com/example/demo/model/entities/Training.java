@@ -1,5 +1,10 @@
 package com.example.demo.model.entities;
 
+// Created: 2024-12-12
+// Modified by: Ömer Yalcinkaya
+// Description: Training
+
+
 import java.util.*;
 
 import jakarta.persistence.*;

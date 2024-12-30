@@ -1,3 +1,6 @@
+//Written by Ömer Yalcinkaya
+
+
 package com.example.demo.views.training;
 
 import java.time.format.DateTimeFormatter;

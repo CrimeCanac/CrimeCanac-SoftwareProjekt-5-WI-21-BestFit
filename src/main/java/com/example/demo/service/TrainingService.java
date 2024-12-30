@@ -1,5 +1,9 @@
 package com.example.demo.service;
 
+// Created: 2024-12-12
+// Modified by: Ömer Yalcinkaya
+// Description: TrainingsService
+
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;

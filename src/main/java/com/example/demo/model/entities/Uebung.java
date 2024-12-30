@@ -78,3 +78,4 @@ public class Uebung {
         this.muskelgruppe = muskelgruppe;
     }
 }
+ 
