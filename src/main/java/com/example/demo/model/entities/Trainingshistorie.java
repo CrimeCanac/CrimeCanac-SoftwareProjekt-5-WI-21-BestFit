@@ -1,12 +1,16 @@
 package com.example.demo.model.entities;
 
+// Written by: Ömer Yalcinkaya
 // Created: 2024-12-12
-// Modified by: Ömer Yalcinkaya
-// Description: TrainingsHistorie
+// Description: Entität für die Historie eines Trainings.
 
 import java.time.*;
 
 import jakarta.persistence.*;
+
+/*
+ * Die Klasse Trainingshistorie repräsentiert die Historie eines Trainings für einen Benutzer.
+ */
 @Entity
 public class Trainingshistorie {
 
@@ -23,13 +27,18 @@ public class Trainingshistorie {
     private double sumGewicht;
     private int sumUebungen;
     @ManyToOne (fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-    private Training training;
+    private Training training;   
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-    private User user;
+    private User user;          
+
+
+    // Konstruktor setzt das aktuelle Datum
 
     public Trainingshistorie() {
         this.datum = LocalDateTime.now();
     }
+
+    // Getter und Setter
 
     public Training getTraining() {
         return training;
@@ -71,6 +80,9 @@ public class Trainingshistorie {
         this.dauer_string = dauer_string;
     }
 
+     /*
+     * Setzt die Dauer basierend auf einem String "HH:MM:SS"
+     */
     public void setDauerByString(String dauer_string) {
         String[] parts = dauer_string.split(":");
         int hours = Integer.parseInt(parts[0]);
@@ -104,6 +116,9 @@ public class Trainingshistorie {
         return sumGewicht;
     }
 
+    /*
+     * Berechnet das durchschnittliche Gewicht pro Wiederholung
+     */
     public int getAvgGewicht() {
         if(sumWdh == 0) {
             return (int)sumGewicht / 1;

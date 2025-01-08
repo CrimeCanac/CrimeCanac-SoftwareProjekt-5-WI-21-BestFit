@@ -1,4 +1,6 @@
-//Written by Ömer Yalcinkaya
+// Written by: Ömer Yalcinkaya
+// Created: 2024-12-12
+// Description: View für Trainingsplanauswahl
 
 package com.example.demo.views.training;
 
@@ -47,14 +49,16 @@ public class TrainingsplanAuswahlView extends VerticalLayout{
     private Button btnAbbrechen = new Button("Abbrechen");
     private HorizontalLayout hlButtons_Training = new HorizontalLayout(btnStarten, btnAbbrechen);
 
-
+    // Konstruktor
     public TrainingsplanAuswahlView(@Autowired TrainingsplanService trainingsplanService, @Autowired TrainingService trainingService) {
         this.trainingsplanService = trainingsplanService;
         this.trainingService = trainingService;
 
+        // Trainingsplan auswählen Button
         btnChoose.addClickListener(e -> {
             Trainingsplan selectedTrainingsplan = getSelectedTrainingsplan();
             if (selectedTrainingsplan != null) {
+                // Lädt die Trainings des ausgewählten Trainingsplans in das Trainings-Grid
                 gridTraining.setItems(trainingService.getTrainingsByTrainingsplanId(selectedTrainingsplan.getId()));
                 gridTraining.setColumns("name", "beschreibung");
                 gridTraining.setHeight("95%");
@@ -63,6 +67,8 @@ public class TrainingsplanAuswahlView extends VerticalLayout{
                 Notification.show("Bitte wählen Sie einen Trainingsplan aus.", 3000, Notification.Position.MIDDLE);
             }
         });
+      
+        // Training starten Button
         btnStarten.addClickListener(e -> {
             Training selectedTraining = gridTraining.asSingleSelect().getValue();
             if (selectedTraining != null) {
@@ -71,17 +77,22 @@ public class TrainingsplanAuswahlView extends VerticalLayout{
                 Notification.show("Bitte wählen Sie ein Training aus.", 3000, Notification.Position.MIDDLE);
             }
         });
+            
+        // Abbrechen Button
         btnAbbrechen.addClickListener(e -> {
             trainingDialog.close();
         });
+
+        // Konfiguriert das Filter-Textfeld
         tfFilterName.setLabel("Filtern nach Name");
         tfFilterName.setPlaceholder("Name");
         tfFilterName.setClearButtonVisible(true);
         tfFilterName.setValueChangeMode(ValueChangeMode.LAZY);
         tfFilterName.addValueChangeListener(e -> {
-            gridTrainingsplan.setItems(
+            gridTrainingsplan.setItems(                     //Aktualisiert die Trainingspläne
                 trainingsplanService.filterTrainingsplanByName(tfFilterName.getValue()));
         });
+
         hlToolbar.add(tfFilterName);
         hlToolbar.setAlignItems(Alignment.BASELINE);
         gridTrainingsplan.setItems(trainingsplanService.getAllTrainingsplaene());

@@ -1,4 +1,6 @@
-//Written by Ömer Yalcinkaya
+// Written by: Ömer Yalcinkaya
+// Created: 2024-12-12
+// Description: Layout für die Uebung.
 
 package com.example.demo.views.uebung;
 
@@ -12,6 +14,8 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+
+// Stellt eine Übung dar. Hinzufügen, Entfernen 
 public class UebungLayout extends VerticalLayout {
 
     private Uebung uebung;
@@ -20,15 +24,20 @@ public class UebungLayout extends VerticalLayout {
     private VerticalLayout vlContent = new VerticalLayout();
     private Button btnAddSatz = new Button(VaadinIcon.PLUS.create());
 
+    // Initialisiert das Layout mit der gegebenen Übung und Anzahl der Sätze
     public UebungLayout(Uebung uebung, int anzSaetze) {
         this.uebung = uebung;
         hlHeader.add(new H4(uebung.getName()), btnAddSatz);
+
+        // Sätze hinzufügen
         for (int i = 1; i <= anzSaetze; i++) {
             uebungComponents.add(new UebungComponent(this, uebung, i));
         }
         for (HorizontalLayout x : uebungComponents) {
             vlContent.add(x);
         }
+
+        // Listener fürs hinzufügen
         btnAddSatz.addClickListener(e -> {
             int satznr = uebungComponents.size() + 1;
 
@@ -51,6 +60,7 @@ public class UebungLayout extends VerticalLayout {
         add(hlHeader, vlContent);
     }
 
+    // Entfernt Satz
     public void deleteSatz(String strSatz) {
         for (UebungComponent x : uebungComponents) {
 
@@ -68,6 +78,7 @@ public class UebungLayout extends VerticalLayout {
         }
     }
 
+    // Aktualisiert nach dem Entfernen
     private void resetSatznr() {
         int satznr = 1;
         for (UebungComponent x : uebungComponents) {

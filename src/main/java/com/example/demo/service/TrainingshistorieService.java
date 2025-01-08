@@ -1,8 +1,8 @@
 package com.example.demo.service;    
 
+// Written by: Ömer Yalcinkaya
 // Created: 2024-12-12
-// Modified by: Ömer Yalcinkaya
-// Description: Trainingshistorie
+// Description: Service-Schicht für die Verwaltung von Trainingshistorie-Entitäten
 
 import java.util.List;
 
@@ -19,6 +19,7 @@ public class TrainingshistorieService {
     @Autowired
     private final TrainingshistorieRepository repository;
 
+    //Konstruktor 
     public TrainingshistorieService (TrainingshistorieRepository repository) {
         this.repository = repository;
     }

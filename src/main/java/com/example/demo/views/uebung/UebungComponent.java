@@ -1,5 +1,6 @@
-//Written by Ömer Yalcinkaya
-
+// Written by: Ömer Yalcinkaya
+// Created: 2024-12-12
+// Description: UI-Komponenten eines Satzes innerhalb einer Übung
 
 package com.example.demo.views.uebung;
 
@@ -19,6 +20,8 @@ public class UebungComponent extends HorizontalLayout{
     private TextField tfSatz = new TextField();
     private Button btnDelete = new Button("", VaadinIcon.TRASH.create());
 
+
+    // Konstruktor
     public UebungComponent(UebungLayout parent, Uebung uebung, int satznr) {
 
         tfSatz.setValue(satznr + ".");
@@ -43,6 +46,7 @@ public class UebungComponent extends HorizontalLayout{
         add(tfSatz, ifWdh, nfGewicht, btnDelete);
     }
 
+    // Getter und Setter
     public void setIfWdhValue(int wdh) {
         ifWdh.setValue(wdh);
     }

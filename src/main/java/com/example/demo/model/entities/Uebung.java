@@ -1,5 +1,10 @@
 package com.example.demo.model.entities;
 
+// Written by: Ömer Yalcinkaya
+// Created: 2024-12-12
+// Description: Service für die Uebung.
+
+
 import java.util.Objects;
 
 import com.example.demo.model.enums.Muskelgruppe;

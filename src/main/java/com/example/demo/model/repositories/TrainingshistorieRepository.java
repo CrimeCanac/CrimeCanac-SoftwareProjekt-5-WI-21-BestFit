@@ -1,8 +1,8 @@
 package com.example.demo.model.repositories;
 
+// Written by: Ömer Yalcinkaya
 // Created: 2024-12-12
-// Modified by: Ömer Yalcinkaya
-// Description: TrainingsHistorie
+// Description: Repository für die TrainingsHistorie-Entität
 
 import java.util.List;
 

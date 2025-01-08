@@ -1,8 +1,8 @@
 package com.example.demo.model.repositories;
 
+// Written by: Ömer Yalcinkaya
 // Created: 2024-12-12
-// Modified by: Ömer Yalcinkaya
-// Description: Training
+// Description: Repository für die Training-Entität
 
 import java.util.*;
 

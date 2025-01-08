@@ -1,8 +1,8 @@
 package com.example.demo.service;
 
+// Written by: Ömer Yalcinkaya
 // Created: 2024-12-12
-// Modified by: Ömer Yalcinkaya
-// Description: TrainingsService
+// Description: Service-Schicht für die Verwaltung von Training-Entitäten
 
 import java.util.*;
 
@@ -18,6 +18,8 @@ public class TrainingService {
 
     @Autowired
     private final TrainingRepository repository;
+
+
 
     public TrainingService (TrainingRepository repository) {
         this.repository = repository;

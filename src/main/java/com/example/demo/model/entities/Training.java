@@ -1,17 +1,20 @@
 package com.example.demo.model.entities;
 
+// Written by: Ömer Yalcinkaya
 // Created: 2024-12-12
-// Modified by: Ömer Yalcinkaya
-// Description: Training
+// Description: Entität für die Trainingseinheit mit zugehörigen Übungen.
 
 
 import java.util.*;
 
 import jakarta.persistence.*;
 
+    /**
+     * Die Klasse Training repräsentiert ein Trainingsobjekt in der Anwendung.
+     */
+    @Entity
+    public class Training {
 
-@Entity
-public class Training {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "training_seq")
@@ -20,23 +23,29 @@ public class Training {
     @Column(nullable = false)
     private String name;
     private String beschreibung;
+
     @ManyToMany(mappedBy = "trainings", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<Trainingsplan> trainingsplaene;
 
+    
     @ManyToMany (fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     @JoinTable(
         name = "training_uebungen",
         joinColumns = @JoinColumn(name = "training_id"),
         inverseJoinColumns = @JoinColumn(name = "uebung_id"))
     private List<Uebung> uebungen;
+
     @OneToMany(mappedBy = "training", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE) 
     private Set<Trainingshistorie> trainingHistorie;
 
+    //Standardkonstruktor
     public Training () {
         this.trainingsplaene = new HashSet<>();
         this.uebungen = new ArrayList<>();
         this.trainingHistorie = new HashSet<>();
     }
+
+    // Getter und Setter für die Felder
 
     public long getId() {
         return id;

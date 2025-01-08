@@ -1,5 +1,9 @@
 package com.example.demo.service;
 
+// Written by: Ömer Yalcinkaya
+// Created: 2024-12-12
+// Description: Service-Schicht für die Uebung.
+
 import com.example.demo.model.entities.Uebung;
 import com.example.demo.model.enums.Muskelgruppe;
 import com.example.demo.model.repositories.UebungRepository;
@@ -15,6 +19,7 @@ public class UebungService {
 
     private final UebungRepository uebungRepository;
 
+    
     public UebungService(UebungRepository uebungRepository) {
         this.uebungRepository = uebungRepository;
     }

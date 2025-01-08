@@ -1,4 +1,6 @@
-//Written by Ömer Yalcinkaya
+// Written by: Ömer Yalcinkaya
+// Created: 2024-12-12
+// Description: View-Komponente für eine Stoppuhr
 
 package com.example.demo.views.training;
 
@@ -22,6 +24,8 @@ public class StopuhrView extends VerticalLayout {
     private boolean isRunning = false;
     private boolean isPaused = false;
 
+
+    //Konstruktor
     public StopuhrView() {
         btnStart.addClickListener(e -> start());
         btnStart.addThemeVariants(ButtonVariant.LUMO_SUCCESS, ButtonVariant.LUMO_PRIMARY);

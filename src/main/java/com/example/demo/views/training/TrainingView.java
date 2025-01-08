@@ -1,4 +1,6 @@
-//Written by Ömer Yalcinkaya
+// Written by Ömer Yalcinkaya
+// Created: 2024-12-12
+// Description: View für den Training
 
 package com.example.demo.views.training;
 
@@ -59,6 +61,8 @@ public class TrainingView extends VerticalLayout implements BeforeEnterObserver 
     private Button btnBeenden = new Button("Beenden", VaadinIcon.CHECK.create());
     private Button btnAbbrechen = new Button("Abbrechen", VaadinIcon.CLOSE.create());
 
+
+    // Konstruktor
     @Autowired
     public TrainingView (TrainingService trainingService, 
                         TrainingshistorieService trainingshistorieService,
@@ -66,8 +70,8 @@ public class TrainingView extends VerticalLayout implements BeforeEnterObserver 
         this.trainingService = trainingService;
         this.trainingshistorieService = trainingshistorieService;
         this.UserService = userService;
-
-
+        
+        // Beenden Button
         btnBeenden.addClickListener(e -> {
             Trainingshistorie th = new Trainingshistorie();
             stopuhr.stop();
@@ -80,12 +84,17 @@ public class TrainingView extends VerticalLayout implements BeforeEnterObserver 
             th.setUser(UserService.getCurrentUser());
             trainingshistorieService.saveTrainingshistorie(th);
             UI.getCurrent().navigate("home");});
+        
+        // Abbrechen Button
         btnAbbrechen.addClickListener(e -> {
             stopuhr.stop();
             UI.getCurrent().navigate("trainingsplanauswahl");
         });
+
         btnBeenden.addThemeVariants(ButtonVariant.LUMO_SUCCESS, ButtonVariant.LUMO_PRIMARY);
         btnAbbrechen.addThemeVariants(ButtonVariant.LUMO_ERROR, ButtonVariant.LUMO_PRIMARY);
+
+        // Layout-Einstellungen      
         setAlignItems(Alignment.CENTER);
         setJustifyContentMode(JustifyContentMode.CENTER);
         setWidth("100%");
@@ -114,7 +123,8 @@ public class TrainingView extends VerticalLayout implements BeforeEnterObserver 
     public void setTraining(Training training) {
         this.training = training;
     }
-
+    
+    // Erstellt die UI-Komponenten für jede Übung und fügt sie zur Liste hinzu.
     private void setLayouts() {
         if(uebungen == null || uebungen.size() <= 0) {
             H2 h2 = new H2("Keine Übungen vorhanden");

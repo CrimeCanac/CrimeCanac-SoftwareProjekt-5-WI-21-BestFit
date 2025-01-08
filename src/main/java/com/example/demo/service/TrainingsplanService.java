@@ -1,8 +1,8 @@
 package com.example.demo.service;
 
+// Written by: Ömer Yalcinkaya
 // Created: 2024-12-12
-// Modified by: Ömer Yalcinkaya
-// Description: TraninsplanService
+// Description: Service-Schicht für die Verwaltung von Trainingsplan-Entitäten
 
 import java.util.List;
 
@@ -18,6 +18,8 @@ public class TrainingsplanService {
 
     private final TrainingsplanRepository repo;
 
+
+    //Konstruktor
     @Autowired
     public TrainingsplanService(TrainingsplanRepository repo) {
         this.repo = repo;
